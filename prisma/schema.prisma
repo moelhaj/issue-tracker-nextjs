@@ -3,62 +3,47 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "mongodb"
     url      = env("DATABASE_URL")
 }
 
-model User {
-    id            String          @id @default(uuid())
-    title         String
-    name          String
-    email         String          @unique
-    password      String
-    role          String
-    avatar        String?
-    createdAt     DateTime        @default(now())
-    updatedAt     DateTime        @updatedAt
-    Project       Project?        @relation(fields: [projectId], references: [id])
-    projectId     String?
-    Issue         Issue[]
-    Notifications Notifications[]
-}
-
 model Project {
-    id        String   @id @default(uuid())
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
     title     String
     details   String
     startDate DateTime
-    endDate   DateTime
-    issues    Issue[]
-    team      User[]
+    dueDate   DateTime
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    updateAt  DateTime @updatedAt
+
+    userIDs String[] @db.ObjectId
+    team    User[]   @relation(fields: [userIDs], references: [id])
 }
 
 model Issue {
-    id         String   @id @default(uuid())
-    title      String
-    details    String
-    status     String
-    type       String
-    priority   String
-    project    Project  @relation(fields: [projectId], references: [id])
-    projectId  String
-    assignee   User     @relation(fields: [assigneeId], references: [id])
-    assigneeId String
-    createdAt  DateTime @default(now())
-    updatedAt  DateTime @updatedAt
-}
-
-model Notifications {
-    id        String   @id @default(uuid())
-    seen      Boolean? @default(false)
-    type      String
-    date      DateTime @default(now())
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
     title     String
     details   String
-    user      User?    @relation(fields: [userId], references: [id])
-    userId    String?
+    type      String
+    priority  String
+    severity  String
+    status    String
     createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    updateAt  DateTime @updatedAt
+    User      User?    @relation(fields: [userId], references: [id])
+    userId    String?  @db.ObjectId
+}
+
+model User {
+    id         String    @id @default(auto()) @map("_id") @db.ObjectId
+    name       String
+    email      String
+    verified   Boolean   @default(false)
+    roles      String[]
+    password   String
+    createdAt  DateTime  @default(now())
+    updatedAt  DateTime  @updatedAt
+    issues     Issue[]
+    projectIDs String[]  @db.ObjectId
+    projects   Project[] @relation(fields: [projectIDs], references: [id])
 }

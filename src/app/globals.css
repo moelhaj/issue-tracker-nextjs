@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.orientation svg {
+	@apply fill-gray-200;
+	margin-bottom: 20px;
+}
+
+.bi-phone {
+	animation: rotation 3s infinite ease-in-out;
+}
+
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(90deg);
+	}
+	40% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
