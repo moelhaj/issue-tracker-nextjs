@@ -19,7 +19,7 @@ export default function Dashboard() {
 				</div>
 			</div>
 			Dashboard
-			<p>{user}</p>
+			<p>{user.name}</p>
 		</div>
 	);
 }

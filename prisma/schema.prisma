@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-    provider = "mongodb"
+    provider = "postgres"
     url      = env("DATABASE_URL")
 }
 
 model Project {
-    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    id        Int      @id @default(autoincrement())
     title     String
     details   String
     startDate DateTime
@@ -16,12 +16,11 @@ model Project {
     createdAt DateTime @default(now())
     updateAt  DateTime @updatedAt
 
-    userIDs String[] @db.ObjectId
-    team    User[]   @relation(fields: [userIDs], references: [id])
+    team User[]
 }
 
 model Issue {
-    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    id        Int      @id @default(autoincrement())
     title     String
     details   String
     type      String
@@ -31,19 +30,19 @@ model Issue {
     createdAt DateTime @default(now())
     updateAt  DateTime @updatedAt
     User      User?    @relation(fields: [userId], references: [id])
-    userId    String?  @db.ObjectId
+    userId    Int?
 }
 
 model User {
-    id         String    @id @default(auto()) @map("_id") @db.ObjectId
-    name       String
-    email      String
-    verified   Boolean   @default(false)
-    roles      String[]
-    password   String
-    createdAt  DateTime  @default(now())
-    updatedAt  DateTime  @updatedAt
-    issues     Issue[]
-    projectIDs String[]  @db.ObjectId
-    projects   Project[] @relation(fields: [projectIDs], references: [id])
+    id        Int      @id @default(autoincrement())
+    name      String
+    email     String
+    verified  Boolean  @default(false)
+    roles     String[]
+    password  String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    issues   Issue[]
+    projects Project[]
 }

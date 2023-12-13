@@ -1,34 +1,22 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import Logo from "./logo";
-import MobileMenu from "./mobile-menu";
-import UserMenu from "./user-menu";
 import Image from "next/image";
-import Toggler from "./toggler";
+import { MainNav } from "./main-nav";
+import { MobileNav } from "./mobile-nav";
+import { UserNav } from "./user-nav";
+import Link from "next/link";
 
-export default function Header() {
-	const { user } = useSelector((state: any) => state.user);
-	const [openUserMenu, setOpenUserMenu] = useState(false);
-	const [expand, setExpand] = useState(false);
+export default function index() {
 	return (
-		<div className="flex justify-between p-3">
-			<Toggler toggleMenu={() => setExpand(!expand)} menu={expand} />
-			<div className="flex lg:hidden">
-				<Logo />
+		<header className="w-full border-b">
+			<div className="max-w-6xl mx-auto w-full px-3 flex h-14 items-center">
+				<MainNav />
+				<MobileNav />
+				<div className="flex-1" />
+				<Link href="/">
+					<Image priority src="./logo.svg" alt="codex logo" width="20" height="20" />
+				</Link>
+				<div className="flex-1" />
+				<UserNav />
 			</div>
-			<div
-				onClick={() => setOpenUserMenu(!open)}
-				className="w-9 h-9 border-2 rounded-full border-violet-600 grid place-content-center cursor-pointer"
-			>
-				<Image
-					src={user === "admin" ? "/admin.png" : "/developer.png"}
-					alt="avatar"
-					width={20}
-					height={20}
-				/>
-			</div>
-			<UserMenu open={openUserMenu} close={() => setOpenUserMenu(false)} />
-			<MobileMenu expand={expand} setExpand={setExpand} />
-		</div>
+		</header>
 	);
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 563.452 554.111" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="554.111" width="563.452" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M-0.41103 42.3529C-0.41103 18.9621 18.551 0 41.9419 0L212.386 0C235.777 0 254.739 18.9621 254.739 42.3529L254.739 212.797C254.739 236.188 235.777 255.15 212.386 255.15L41.9419 255.15C18.551 255.15-0.41103 236.188-0.41103 212.797L-0.41103 42.3529Z" fill="#a78bfa" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Rectangle 1"/>
+<path d="M308.302 42.3529C308.302 18.9621 327.264 0 350.655 0L521.099 0C544.49 0 563.452 18.9621 563.452 42.3529L563.452 212.797C563.452 236.188 544.49 255.15 521.099 255.15L350.655 255.15C327.264 255.15 308.302 236.188 308.302 212.797L308.302 42.3529Z" fill="#7c3aed" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Rectangle 2"/>
+<path d="M-0.41103 340.565C-0.41103 317.174 19.6045 298.212 44.2949 298.212L224.208 298.212C248.898 298.212 268.914 317.174 268.914 340.565L268.914 511.009C268.914 534.4 248.898 553.362 224.208 553.362L44.2949 553.362C19.6045 553.362-0.41103 534.4-0.41103 511.009L-0.41103 340.565Z" fill="#7c3aed" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Rectangle 3"/>
+<path d="M308.302 341.314C308.302 317.923 327.264 298.961 350.655 298.961L521.099 298.961C544.49 298.961 563.452 317.923 563.452 341.314L563.452 511.758C563.452 535.149 544.49 554.111 521.099 554.111L350.655 554.111C327.264 554.111 308.302 535.149 308.302 511.758L308.302 341.314Z" fill="#a78bfa" fill-rule="nonzero" opacity="1" stroke="none" vectornator:layerName="Rectangle 4"/>
+</g>
+</svg>
